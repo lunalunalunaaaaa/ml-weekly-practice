@@ -1,0 +1,15 @@
+﻿model,split,MAE,RMSE,selected_ridge
+mean_baseline,train,64.65651833392668,77.33077239266763,False
+single_feature_linear_regression,train,50.95219065134356,61.447175334750796,False
+multi_feature_linear_regression,train,44.28735664998522,54.28492970751399,False
+ridge_alpha_1,train,44.302752259844034,54.29659148693614,True
+ridge_alpha_100,train,45.74472678576925,55.440133491303946,False
+mean_baseline,validation,67.51616638078903,76.1613636533489,False
+single_feature_linear_regression,validation,49.205121728237,60.83306853752704,False
+multi_feature_linear_regression,validation,38.22127405114379,49.14969247001349,False
+ridge_alpha_1,validation,38.293931787248994,49.20325404711291,True
+ridge_alpha_100,validation,40.50344400018816,50.814868676109555,False
+mean_baseline,test,66.72885308458767,76.90570132709547,False
+single_feature_linear_regression,test,55.21065713713019,67.04404354626587,False
+multi_feature_linear_regression,test,46.72401655139613,56.97026769267666,False
+ridge_alpha_1,test,46.79406568459079,57.08344544384644,True
