@@ -17,7 +17,7 @@ RESULTS_DIR.mkdir(exist_ok=True)
 RANDOM_STATE = 42
 RIDGE_ALPHAS = (1, 100)
 
-
+#定义评价函数
 def evaluate(y_true, y_pred):
     """返回 MAE 和 RMSE；二者都是越小越好。"""
     return {
