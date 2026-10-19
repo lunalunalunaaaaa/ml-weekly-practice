@@ -14,6 +14,7 @@ def main():
     data = prepare_data()
     torch.manual_seed(42)
     initial = mlp()  # CPU、float32，正常随机初始化。
+    # 只初始化一次，然后深拷贝给两组实验，避免初始权重不同干扰比较。
     print('Split sizes:', {k: len(v) for k, v in data['raw_y'].items()})
     print('Width 16:', forward_shapes(initial, data['x']['train'][:32]))
     models, history, rows = {}, [], []
@@ -35,8 +36,12 @@ def main():
         for split in ('train', 'validation'):
             row.update({f'{split}_{k}': v for k, v in evaluate_mlp(model, data, split).items()})
         rows.append(row)
-    selected = min(rows[2:], key=lambda r: (r['validation_rmse'], r['model'] != 'SGD'))['model']
+    # 从明确标记的 MLP 结果中选择，不依赖基线在 rows 中的位置或数量。
+    # 元组先比较验证 RMSE，完全相同时 False < True，因此优先选择 SGD。
+    mlp_rows = [row for row in rows if row['model'] in models]
+    selected = min(mlp_rows, key=lambda r: (r['validation_rmse'], r['model'] != 'SGD'))['model']
     for row in rows:
+        # 测试集只在配置选定后用于最终评价，不能反过来参与模型选择。
         name = row['model']
         row['selected_mlp'] = name == selected
         row['test_mae'] = row['test_rmse'] = None

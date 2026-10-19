@@ -2,7 +2,7 @@
 
 ## 运行
 
-使用 Python 3.10 或更高版本，CPU 即可。依赖范围见 requirements.txt；编写时已检测到的本机环境为 Python 3.10.18、NumPy 2.2.5、pandas 2.3.3、scikit-learn 1.7.2、Matplotlib 3.10.6，但该解释器缺少 PyTorch。本交付尚未执行 PyTorch 训练，不能把预期数值当作实测结果。
+使用 Python 3.10 或更高版本，CPU 即可。依赖范围见 requirements.txt。请在安装了 PyTorch 的解释器中运行；当前 results/ 已有 MLP 训练结果，具体数值以 CSV 为准。
 
 进入 week05 后，在已安装 PyTorch 的环境执行：
 
@@ -51,13 +51,13 @@ python run_mlp.py
 | loss_curves.png | SGD/Adam 双面板训练与验证曲线，标记最佳轮次；纵轴为标准化目标 MSE |
 | rmse_comparison.png | 四模型训练/验证 RMSE，原始目标单位；MLP 为最佳轮次参数 |
 
-实践一包含数值断言：预期初始 loss=10，dw=-10，db=-6，更新后 w=1、b=0.6、重新计算 loss≈0.26。原来保存的 pred 不随参数更新自动重算；step 后梯度仍保留，下一次 zero_grad 才会清理。
+实践一包含数值断言：预期初始 loss=10，dw=-10，db=-6，更新后 w=1、b=0.6、重新计算 loss≈1.06。原来保存的 pred 不随参数更新自动重算；step 后梯度仍保留，下一次 zero_grad 才会清理。
 
 ## 隐藏层修改练习与组会说明
 
 models.mlp 的 hidden_dim 同时控制 Linear(10, hidden_dim) 与 Linear(hidden_dim, 1)。run_mlp.main 最后保留 mlp(hidden_dim=8) 的前向检查，临时模型不训练、不产生额外图表。
 
-以 32 个样本为例，程序将打印以下形状（需实际运行确认）：
+以 32 个样本为例，程序将打印以下形状（与网络结构对应）：
 
 ```text
 Width 16: [(32, 10), (32, 16), (32, 16), (32, 1)]

@@ -8,6 +8,7 @@
 - [第二周实践：线性回归与 GitHub 代码管理](week02/)
 - [第三周实践：多特征回归与 Ridge](week03/)
 - [第四周实践：PCA 降维与 K-means 聚类](week04/)
+- [第五周实践：MLP 与 PyTorch 训练基础](week05/)
 
 ## 仓库结构
 
@@ -15,3 +16,4 @@
 - `week02/`：第二周实践
 - `week03/`：多特征线性回归与 Ridge 对照
 - `week04/`：PCA 回归对照、重构误差与 K-means 聚类
+- `week05/`：PyTorch 单步更新、MLP 训练与优化器配置对比

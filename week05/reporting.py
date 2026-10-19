@@ -15,11 +15,13 @@ def save_step(rows):
 
 
 def save_experiment(history, rows):
+    """保存逐轮损失、最终指标，以及两张用于比较训练表现的图。"""
     RESULTS.mkdir(parents=True, exist_ok=True)
     history, table = pd.DataFrame(history), pd.DataFrame(rows)
     history.to_csv(RESULTS / 'history.csv', index=False, encoding='utf-8-sig')
     table.to_csv(RESULTS / 'metrics.csv', index=False, encoding='utf-8-sig')
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
+    # 每套配置各一个面板；虚线对应验证误差最小的轮次，而非最后一轮。
     for ax, name in zip(axes, ('SGD', 'Adam')):
         part = history[history.config == name]
         best = int(table.loc[table.model == name, 'best_epoch'].iloc[0])
@@ -35,6 +37,7 @@ def save_experiment(history, rows):
     plt.close(fig)
     fig, ax = plt.subplots(figsize=(9, 5))
     positions, width = np.arange(len(table)), 0.36
+    # 同一模型的训练/验证柱子左右错开，便于观察两者的误差差距。
     ax.bar(positions-width/2, table.train_rmse, width, label='Train')
     ax.bar(positions+width/2, table.validation_rmse, width, label='Validation')
     ax.set_xticks(positions, table.model)
