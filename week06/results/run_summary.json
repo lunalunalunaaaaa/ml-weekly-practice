@@ -1,0 +1,57 @@
+{
+  "n_raw": 17420,
+  "raw_start": "2016-07-01 00:00:00",
+  "raw_end": "2018-06-26 19:00:00",
+  "used_hours": 14400,
+  "window_size": 24,
+  "horizon": 1,
+  "route": "ridge",
+  "alphas": [
+    0.1,
+    10.0,
+    1000.0
+  ],
+  "chosen_alpha": 0.1,
+  "selected_model": "ridge_tuned",
+  "boundaries": {
+    "train": [
+      "2016-07-01 00:00",
+      "2017-06-26 00:00"
+    ],
+    "val": [
+      "2017-06-26 00:00",
+      "2017-10-24 00:00"
+    ],
+    "test": [
+      "2017-10-24 00:00",
+      "2018-02-21 00:00"
+    ]
+  },
+  "split_samples": {
+    "train": 8616,
+    "val": 2880,
+    "test": 2880
+  },
+  "data_sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+  "versions": {
+    "python": "3.12.15",
+    "numpy": "2.2.5",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.6"
+  },
+  "verification": {
+    "verified_prediction_rows": 57504,
+    "verified_metric_rows": 12
+  },
+  "numeric_checks": {
+    "lag_linear": {
+      "max_prediction_difference": 1.4210854715202004e-14,
+      "max_coefficient_difference": 0.0
+    },
+    "ridge_tuned": {
+      "max_prediction_difference": 1.4210854715202004e-14,
+      "max_coefficient_difference": 9.923339927553343e-12
+    }
+  }
+}
