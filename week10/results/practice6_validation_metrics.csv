@@ -1,0 +1,5 @@
+model,n_samples,mae,rmse,source
+last_value,2880,0.6082382139232424,0.9252710736968028,validation window last observation
+lstm,2880,0.5975463003474581,0.9141535043792658,week08/results/validation_predictions.csv:lstm (week07 selected LSTM)
+single_head,2880,1.2389179156652739,1.5943476454296266,week08/results/validation_predictions.csv:attention
+encoder,2880,0.5947533732414325,0.9056752196152691,week10/results/best_encoder.pt; epoch 33

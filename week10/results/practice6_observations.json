@@ -1,0 +1,75 @@
+{
+  "best_epoch": 33,
+  "best_val_mse": 0.009740733885340518,
+  "checkpoint": "week10/results/best_encoder.pt",
+  "seed": 42,
+  "device": "cpu",
+  "with_position": true,
+  "use_causal_mask": false,
+  "shapes": {
+    "X": [
+      1,
+      24,
+      16
+    ],
+    "M": [
+      1,
+      24,
+      16
+    ],
+    "H": [
+      1,
+      24,
+      16
+    ],
+    "F": [
+      1,
+      24,
+      16
+    ],
+    "E": [
+      1,
+      24,
+      16
+    ],
+    "last": [
+      1,
+      16
+    ],
+    "prediction": [
+      1,
+      1
+    ]
+  },
+  "first_batch": {
+    "head1_query": {
+      "gradient_shape": [
+        8,
+        16
+      ],
+      "gradient_norm": 0.007404675241559744,
+      "max_change_after_backward": 0.0,
+      "max_change_after_step": 0.0009999945759773254
+    },
+    "predictor": {
+      "gradient_shape": [
+        1,
+        16
+      ],
+      "gradient_norm": 5.8406829833984375,
+      "max_change_after_backward": 0.0,
+      "max_change_after_step": 0.0010000020265579224
+    }
+  },
+  "mean": 17.1282616982271,
+  "std": 9.176491024944335,
+  "window": {
+    "target_index": 8640,
+    "target_time": "2017-06-26 00:00:00",
+    "first_time": "2017-06-25 00:00:00",
+    "last_time": "2017-06-25 23:00:00",
+    "standardized_prediction": 0.3832738399505615,
+    "prediction": 20.645370650629378,
+    "actual": 20.96299934387207
+  }
+}

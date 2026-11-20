@@ -1,0 +1,3 @@
+case,head1_weight_6_to_18,head1_future_max_weight,head1_row_weight_sum,output_row6_max_abs_difference
+mask_off,0.04168282076716423,0.0417928546667099,1.0,0.012238264083862305
+mask_on,0.0,0.0,0.9999999403953552,0.0
